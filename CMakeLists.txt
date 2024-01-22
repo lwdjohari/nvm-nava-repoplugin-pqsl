@@ -59,6 +59,7 @@ if(LIB_NAVA2_RPLUGIN_PQSQL_USE_CATCH)
 endif()
 
 # Add dependencies source code
+add_subdirectory(deps/libpqxx-7.8.1 build-pqxx)
 
 # Main headers and sources
 file(GLOB_RECURSE SOURCES_NAVA2_RPLUGIN_PQSQL CONFIGURE_DEPENDS
@@ -69,6 +70,7 @@ file(GLOB_RECURSE SOURCES_NAVA2_RPLUGIN_PQSQL CONFIGURE_DEPENDS
 
 add_library(${PROJECT_NAME} ${SOURCES_NAVA2_RPLUGIN_PQSQL} )
 target_link_libraries(${PROJECT_NAME} 
+    pqxx
     absl::base 
     absl::flat_hash_map 
     absl::algorithm
